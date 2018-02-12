@@ -1,5 +1,3 @@
-var words = [Sirius, Vega, Polaris, Aldebaran, Betelgeuse, Rigel, Arcturus, Canopus, Deneb, Altair, Fomalhaut, Antares, Gamma_Pegasi, Beta_Ceti, Barnards_Star, Atlas, Bellatrix,    ]
-
 var Sirius = {
     number: 1,
     name: "Sirius",
@@ -80,6 +78,8 @@ var Atlas = {
     constellation: "Taurus",
 }
 
+var starArr = [Sirius, Vega, Polaris, Aldebaran, Betelgeuse, Rigel, Deneb, Altair, Antares, Atlas];
+
 var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
         'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
         't', 'u', 'v', 'w', 'x', 'y', 'z'];
@@ -87,6 +87,19 @@ var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
 var gethint ;
 var guesses ; 
 
-var selectstar = function () {
-    Math.floor(Math.random() * 10);
+//This function will select a star from our Object Array
+var selectstar = function (arr) {
+    return arr [Math.floor(Math.random() * arr.lenght)];
 }
+
+//This function will take the selectstar and create the correct number of guess characters
+for (var i = 0; i < selectstar.length; i++) {
+    document.getElementById
+
+}
+
+//This function will evaluate the user input and place them in the correct field
+
+//This function will keep track of used guesses and update lives (guesses remaining)
+
+//
