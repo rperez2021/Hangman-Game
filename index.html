@@ -11,7 +11,8 @@
 
   <!-- Bootstrap is used to make game look nicer -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-  <script src="/assets/javascript/game.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="assets/javascript/game.js"></script> 
 
 </head>
 
@@ -85,10 +86,16 @@
         </div>
       </div>
     </div>
-  </div>
-
+  </div>  
+<script>
+var blah = splitString(selectstar(starArr).name);
+console.log(blah)
+</script>
+  
+  <script src="assets/javascript/game.js"></script>
   <!-- Adds a link to the javascript file. Loaded at the bottom so it waits for the HTML content to display first.
 	If you put this at the top it will crash, because the HTML IDs won't exist yet.-->
+
 
 </body>
 
