@@ -93,11 +93,13 @@ var userguess ;
 var selectstar = function (arr) {
     return arr [Math.floor(Math.random() * arr.length)];
 }
-var randomstar = selectstar(starArr)
+var randomstar = selectstar(starArr);
+console.log (randomstar.name);
+
 // This function will take the selectstar and create the correct number of guess characters
 var underscores = "";
-for (var i = 0; i < randomstar.length; i++) {
-    underscores += "_";
+for (var i = 0; i < randomstar.name.length; i++) {
+    underscores += "_ ";
 }
 document.getElementById("word-blanks").innerHTML = underscores;
 
@@ -113,6 +115,8 @@ if (userguess == randomstar)
 if (!userguess) {
     var wrongletter = getElementById("wrongletters");
 }
+
+
 
 //This function will keep track of used guesses and update lives (guesses remaining)
 
