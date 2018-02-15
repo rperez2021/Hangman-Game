@@ -93,22 +93,21 @@ var userguess ;
 var selectstar = function (arr) {
     return arr [Math.floor(Math.random() * arr.length)];
 }
-
-//This function will take the selectstar and create the correct number of guess characters
-// var wordblanks = document.getElementById("word-blanks");
-// var underscores = "";
-// for (var i = 0; i < selectstar.length; i++) {
-//     underscores += "_";
-// }
-// wordblanks.appendChild("word-blanks")
+var randomstar = selectstar(starArr)
+// This function will take the selectstar and create the correct number of guess characters
+var underscores = "";
+for (var i = 0; i < randomstar.length; i++) {
+    underscores += "_";
+}
+document.getElementById("word-blanks").innerHTML = underscores;
 
 //This function will evaluate the user input and place them in the correct field if it is a valid letter
   function splitString(star) {
         return star.split("");
 }
-splitString(selectstar(starArr).name);
+splitString(randomstar.name);
 
-if (userguess == selectstar)
+if (userguess == randomstar)
 
 //This input will evaluate the user input and place on the wrong answer list
 if (!userguess) {
