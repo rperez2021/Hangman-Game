@@ -85,9 +85,13 @@ var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
         'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
         't', 'u', 'v', 'w', 'x', 'y', 'z'];
 
-var gethint ;
+var gethint ; 
 var guesses ; 
-var userguess ;
+var userguess = "";
+var wrongword = [];
+var rightword = [];
+var underscores = [];
+var win = 0;
 
 //This function will select a star from our Object Array
 var selectstar = function (arr) {
@@ -96,25 +100,97 @@ var selectstar = function (arr) {
 var randomstar = selectstar(starArr);
 console.log (randomstar.name);
 
+
 // This function will take the selectstar and create the correct number of guess characters
-var underscores = "";
-for (var i = 0; i < randomstar.name.length; i++) {
-    underscores += "_ ";
+let createunderscores = () => {
+    for (var i = 0; i < randomstar.name.length; i++) {
+        underscores.push("_");
+    }
+    return underscores;
 }
-document.getElementById("word-blanks").innerHTML = underscores;
+console.log(createunderscores());
 
-//This function will evaluate the user input and place them in the correct field if it is a valid letter
-  function splitString(star) {
-        return star.split("");
+//This function will convert the selected star into an array to evaluate match.
+function splitString(star) {
+    return star.split("");
 }
-splitString(randomstar.name);
+var split_star = splitString(randomstar.name.toLowerCase());
+console.log(split_star)
 
-if (userguess == randomstar)
+// Get user guess from keypress
+document.addEventListener('keypress', (event) => {
+    let userguess = String.fromCharCode(event.keyCode);
+    console.log(userguess);
 
-//This input will evaluate the user input and place on the wrong answer list
-if (!userguess) {
-    var wrongletter = getElementById("wrongletters");
-}
+//if the User guess is correct
+    if(split_star.indexOf(userguess) > -1) {
+        rightword.push(userguess);
+        console.log(rightword);
+        underscores[split_star.indexOf(userguess)] = userguess; {
+        if (underscores.join("") == split_star) {
+            alert("you win!");
+            win++;
+            console.log(win);
+        }
+        }
+    } else {
+        wrongword.push(userguess);
+        console.log(wrongword);
+    }
+});
+
+
+
+
+
+
+//This function will check the user input to see if it is included in the array.
+// var check_user_guess = function (params) {
+//     return userguess.includes(split_star)
+// }
+// var isitinarray = check_user_guess("");
+//     console.log(isitinarray)
+
+//This function located the index of the match
+// function getAllIndexes(arr, val) {
+//     var indexes = [], i = -1;
+//     while ((i = arr.indexOf(val, i+1)) != -1){
+//         indexes.push(i);
+//     }
+//     return indexes;
+// }
+
+// var indexes = getAllIndexes(split_star, userguess);
+//     console.log(indexes)
+
+// //This function will push the correct userguess into the blanks
+// function push_to_under_score() {
+    
+
+    
+// }
+
+// var check_user_guess = function(haystack, arr) {
+//     return split_star.some(function(userguess) {
+//         return split_star.indexOf(userguess) >= 0;
+//     });
+// };
+
+
+// function check_user_guess(element, index, array) {
+//     return split_star === userguess;
+// }
+
+// var blah = split_star.some(check_user_guess(userguess));
+// console.log(blah)
+// console.log(userguess)
+
+// if (userguess == randomstar)
+
+// //This input will evaluate the user input and place on the wrong answer list
+// if (!userguess) {
+//     var wrongletter = getElementById("wrongletters");
+// }
 
 
 
@@ -123,3 +199,16 @@ if (!userguess) {
 //
 
 
+// function indexOfArray (value, array) {
+//     return split_star.indexOf(value);
+// }
+
+//new one 
+
+// // This function will take the selectstar and create the correct number of guess characters
+// let create_underscores = () => {
+//     for (var i = 0; i < randomstar.name.length; i++) {
+//         underscores += "_ ";
+//     }
+//     document.getElementById("word-blanks").innerHTML = underscores;
+//     }
